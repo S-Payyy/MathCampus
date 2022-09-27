@@ -1,0 +1,3 @@
+myfirstname = 'payy'
+
+print(myfirstname)

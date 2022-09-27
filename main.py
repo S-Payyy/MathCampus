@@ -1,17 +1,25 @@
 # code create 23:25 25 Sept 2022 
 # created by xcl404
 # codename 'Matematika Diskrit'
-import os
+from rich.progress import track
+from rich.markdown import Markdown
+from rich.console import Console
+import time
 from Materi import menu as m
+import os
+c = Console()
+codename = '# Discrete Mathematics Tools'
+version = 1.5
+date = '28 Sept 2022'
+desc = f'Code Created by Xcl404\nIg : s_payyy01\nLast Update : v{version} ({date})\nDetails :\n- add styling\n- add more logika '
 
-codename = 'Discrete Mathematics'
-version = 1.0
-desc = 'Matematika diskrit atau diskret adalah cabang matematika yang membahas segala sesuatu yang bersifat diskrit. Diskrit disini artinya tidak saling berhubungan (lawan dari kontinu). Objek yang dibahas dalam Matematika Diskrit - seperti bilangan bulat, graf, atau kalimat logika - tidak berubah secara kontinu, tetapi memiliki nilai yang tertentu dan terpisah. Beberapa hal yang dibahas dalam matematika ini adalah teori himpunan, teori kombinatorial, teori bilangan, permutasi, fungsi, rekursif, teori graf, dan lain-lain. Matematika diskrit merupakan mata kuliah utama dan dasar untuk bidang ilmu komputer atau informatika.'
+os.system('cls')
+md = Markdown(codename, style='purple')
+c.print(md)
+print(f'\nversion = {version}')
+print(f'{desc}\n')
 
-os.system('color b')
-print(codename)
-print(f'version = {version}\n')
-print(f'Description :\n{desc}\n')
-print(120*"=")
+for i in track(range(8), description='Loading. . .'):
+    time.sleep(0.8)
 
 m.menu()
