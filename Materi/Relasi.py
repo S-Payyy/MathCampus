@@ -1,3 +1,0 @@
-myfirstname = 'payy'
-
-print(myfirstname)

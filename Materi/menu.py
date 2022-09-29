@@ -38,7 +38,7 @@ def menu():
         os.system('cls')
     elif choose == 5:
         os.system('cls')
-        l.proposisis()
+        l.logic_menu()
     elif choose == 6:
         os.system('cls')
     elif choose == 7:
