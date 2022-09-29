@@ -1,7 +1,7 @@
 import os
-from time import sleep
-
-from Materi import Logika as l
+from Materi import *
+from Materi import Logika
+from Materi import Kalkulus
 
 def refresh():
     menu()
@@ -13,7 +13,7 @@ def menu():
     import time
 
     ## Menu Table
-    menu = ['Algoritma','Fungsi','Himpunan', 'Induksi Matematika', 'Logika','Matrix','Relasi']
+    menu = ['Algoritma','Fungsi','Himpunan', 'Induksi Matematika', 'Logika','Matrix','Relasi','kalkulus']
     n = 0
     os.system('cls')
 
@@ -38,11 +38,14 @@ def menu():
         os.system('cls')
     elif choose == 5:
         os.system('cls')
-        l.logic_menu()
+        Logika.logic_menu()
     elif choose == 6:
         os.system('cls')
     elif choose == 7:
         os.system('cls')
+    elif choose == 8:
+        os.system('cls')
+        Kalkulus.PersamaanLinear()
     else:
         print('Pilihan tidak ada dalam materi ^_^\n')
         for i in track(range(3),description='Cooldown. . .'):

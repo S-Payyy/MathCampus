@@ -9,9 +9,9 @@ from Materi import menu as m
 import os
 c = Console()
 codename = '# Discrete Mathematics Tools'
-version = 1.5
-date = '28 Sept 2022'
-desc = f'Code Created by Xcl404\nIg : s_payyy01\nLast Update : v{version} ({date})\nDetails :\n- add styling\n- add more logika '
+version = 1.8
+date = '29 Sept 2022'
+desc = f'Code Created by Xcl404\nIg : s_payyy01\nLast Update : v{version} ({date})\nDetails :\n- Style Update\n- update on "Logika"\n- New "Kalkulus"'
 
 os.system('cls')
 md = Markdown(codename, style='purple')
@@ -19,7 +19,7 @@ c.print(md)
 print(f'\nversion = {version}')
 print(f'{desc}\n')
 
-for i in track(range(8), description='Loading. . .'):
-    time.sleep(0.8)
+for i in track(range(3), description='Loading. . .'):
+    time.sleep(1)
 
 m.menu()

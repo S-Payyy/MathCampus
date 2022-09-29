@@ -5,6 +5,116 @@ def refresh():
     os.system('cls')
     logic_menu()
 
+def logic_menu():
+    from Materi import Logika
+    from rich.console import Console
+    from rich.table import Table
+    import os
+
+    jenis = ['Implikasi','Konvers','Inverse','Kontraposisi','ALL','kata(proposisi)','and ( ^ )','or ( v )','xor ( ⊕  )']
+    table_menu = Table()
+    table_menu.add_column('Daftar Materi Logika')
+    n = 0
+
+    for i in jenis:
+        n+=1
+        table_menu.add_row(f'{n}. {i}')
+
+    c = Console()
+    c.print(table_menu)
+
+    j = int(input('Masukkan Jenis Logika : '))
+    print('0 = false , 1 = true')
+    if j == 6:
+        proposisi()
+        input('Lanjutkan? (enter/ctrl+c) ')
+        refresh()
+    elif j == 7:
+        ands()
+        input('Lanjutkan? (enter/ctrl+c) ')
+        refresh()
+    elif j == 8:
+        ors()
+        input('Lanjutkan? (enter/ctrl+c) ')
+        refresh()
+    elif j == 9:
+        xors()
+        input('Lanjutkan? (enter/ctrl+c) ')
+        refresh()
+    elif j == 1 or j == 2 or j == 3 or j == 4 or j == 5 or j == 6:
+        global a
+        global b
+        a = input('\nMasukkan nilai a : ').upper()
+        b = input('Masukkan nilai b : ').upper()
+        print('\n')
+        if a == 'TRUE':
+            if b == 'TRUE':
+                pass
+            elif b == 'FALSE':
+                pass
+            else:
+                os.system('color 4')
+                print('Nilai p atau q tidak valid!')
+                sleep(3)
+                refresh() 
+        elif a == 'FALSE':
+            if b == 'TRUE':
+                pass
+            elif b == 'FALSE':
+                pass
+            else:
+                os.system('color 4')
+                print('Nilai p atau q tidak valid!')
+                sleep(3)
+                refresh() 
+        else:
+            os.system('color 4')
+            print('Nilai p atau q tidak valid!')
+            sleep(2)
+            refresh() 
+    else:
+        os.system('color 4')
+        print('Jenis Logika tidak ada dalam daftar!')
+        sleep(3)
+        refresh()
+
+    if j == 1:
+        implikasi()
+        input('Lanjutkan? (enter/ctrl+c) ')
+        refresh()
+    elif j == 2:
+        konvers()
+        input('Lanjutkan? (enter/ctrl+c) ')
+        refresh()
+    elif j == 3:
+        inverse()
+        input('Lanjutkan? (enter/ctrl+c) ')
+        refresh()
+    elif j == 4:
+        kontraposisi()
+        input('Lanjutkan? (enter/ctrl+c) ')
+        refresh()
+    elif j == 5:
+        alls()
+        input('Lanjutkan? (enter/ctrl+c) ')
+        refresh()
+    elif j == 7:
+        ands()
+        input('Lanjutkan? (enter/ctrl+c) ')
+        refresh()
+    elif j == 8:
+        ors()
+        input('Lanjutkan? (enter/ctrl+c) ')
+        refresh()
+    elif j == 9:
+        xors()
+        input('Lanjutkan? (enter/ctrl+c) ')
+        refresh()
+    else:
+        print('Jenis salah!')
+        sleep(3)
+        refresh()
+
 def proposisi():
     p = input('Masukkan Kata Pertama : ')
     q = input('Masukkan Kata Kedua : ')
@@ -95,16 +205,16 @@ def implikasi():
     from rich.table import Table
     from rich.console import Console
     table = Table(title='Implikasi Table', style='cyan')
-    table.add_column('p')
-    table.add_column('q')
-    table.add_column('p -> q')
-    if p == 'TRUE' and q == 'TRUE':
+    table.add_column('a')
+    table.add_column('b')
+    table.add_column('a ⇒  b')
+    if a == 'TRUE' and b == 'TRUE':
         table.add_row('T','T','T')
-    elif p == 'TRUE' and q == 'FALSE':
+    elif a == 'TRUE' and b == 'FALSE':
         table.add_row('T','F','F')
-    elif p == 'FALSE' and q == 'TRUE':
+    elif a == 'FALSE' and b == 'TRUE':
         table.add_row('F','T','T')
-    elif p == 'FALSE' and q == 'FALSE':
+    elif a == 'FALSE' and b == 'FALSE':
         table.add_row('F','F','T')
     else:
         table.add_row('n/a','n/a','n/a')
@@ -115,16 +225,16 @@ def konvers():
     from rich.table import Table
     from rich.console import Console
     table = Table(title='Konvers Table', style='cyan')
-    table.add_column('p')
-    table.add_column('q')
-    table.add_column('q -> p')
-    if p == 'TRUE' and q == 'TRUE':
+    table.add_column('a')
+    table.add_column('b')
+    table.add_column('~b ⇒  ~a')
+    if a == 'TRUE' and b == 'TRUE':
         table.add_row('T','T','T')
-    elif p == 'TRUE' and q == 'FALSE':
+    elif a == 'TRUE' and b == 'FALSE':
         table.add_row('T','F','T')
-    elif p == 'FALSE' and q == 'TRUE':
+    elif a == 'FALSE' and b == 'TRUE':
         table.add_row('F','T','F')
-    elif p == 'FALSE' and q == 'FALSE':
+    elif a == 'FALSE' and b == 'FALSE':
         table.add_row('F','F','T')
     else:
         table.add_row('n/a','n/a','n/a')
@@ -135,18 +245,18 @@ def inverse():
     from rich.table import Table
     from rich.console import Console
     table = Table(title='Invers Table', style='cyan')
-    table.add_column('p')
-    table.add_column('q')
-    table.add_column('~p')
-    table.add_column('~q')
-    table.add_column('~p -> ~q')
-    if p == 'TRUE' and q == 'TRUE':
+    table.add_column('a')
+    table.add_column('b')
+    table.add_column('~a')
+    table.add_column('~b')
+    table.add_column('~a ⇒  ~b')
+    if a == 'TRUE' and b == 'TRUE':
         table.add_row('T','T','F','F','T')
-    elif p == 'TRUE' and q == 'FALSE':
+    elif a == 'TRUE' and b == 'FALSE':
         table.add_row('T','F','F','T','T')
-    elif p == 'FALSE' and q == 'TRUE':
+    elif a == 'FALSE' and b == 'TRUE':
         table.add_row('F','T','T','F','F')
-    elif p == 'FALSE' and q == 'FALSE':
+    elif a == 'FALSE' and b == 'FALSE':
         table.add_row('F','F','T','T','T')
     else:
         table.add_row('n/a','n/a','n/a')
@@ -157,135 +267,27 @@ def kontraposisi():
     from rich.table import Table
     from rich.console import Console
     table = Table(title='Kontraposisi Table', style='cyan')
-    table.add_column('p')
-    table.add_column('q')
-    table.add_column('~q -> ~p')
-    if p == 'TRUE' and q == 'TRUE':
-        table.add_row('T','T','T')
-    elif p == 'TRUE' and q == 'FALSE':
-        table.add_row('T','F','F')
-    elif p == 'FALSE' and q == 'TRUE':
-        table.add_row('F','T','T')
-    elif p == 'FALSE' and q == 'FALSE':
-        table.add_row('F','F','T')
+    table.add_column('a')
+    table.add_column('b')
+    table.add_column('~a')
+    table.add_column('~b')
+    table.add_column('~b ⇒  ~a')
+    if a == 'TRUE' and b == 'TRUE':
+        table.add_row('T','T','F','F','T')
+    elif a == 'TRUE' and b == 'FALSE':
+        table.add_row('T','F','F','T','F')
+    elif a == 'FALSE' and b == 'TRUE':
+        table.add_row('F','T','T','F','T')
+    elif a == 'FALSE' and b == 'FALSE':
+        table.add_row('F','F','T','T','T')
     else:
         table.add_row('n/a','n/a','n/a')
     console = Console()
     console.print(table)  
 
-def logic_menu():
-    from Materi import Logika
-    from rich.console import Console
-    from rich.table import Table
-    import os
-
-    jenis = ['Implikasi','Konvers','Inverse','Kontraposisi','ALL','kata(proposisi)','and ( ^ )','or ( v )','xor ( ⊕  )']
-    table_menu = Table()
-    table_menu.add_column('Daftar Materi Logika')
-    n = 0
-
-    for i in jenis:
-        n+=1
-        table_menu.add_row(f'{n}. {i}')
-
-    c = Console()
-    c.print(table_menu)
-
-    j = int(input('Masukkan Jenis Logika : '))
-    if j == 6:
-        proposisi()
-        input('Lanjutkan?')
-        refresh()
-    elif j == 7:
-        ands()
-        input('Lanjutkan?')
-        refresh()
-    elif j == 8:
-        ors()
-        input('Lanjutkan?')
-        refresh()
-    elif j == 9:
-        xors()
-        input('Lanjutkan?')
-        refresh()
-    elif j == 1 or j == 2 or j == 3 or j == 4 or j == 5 or j == 6:
-        global p
-        global q
-        p = input('\nMasukkan nilai p : ').upper()
-        q = input('Masukkan nilai q : ').upper()
-        print('\n')
-        if p == 'TRUE':
-            if q == 'TRUE':
-                pass
-            elif q == 'FALSE':
-                pass
-            else:
-                os.system('color 4')
-                print('Nilai p atau q tidak valid!')
-                sleep(3)
-                refresh() 
-        elif p == 'FALSE':
-            if q == 'TRUE':
-                pass
-            elif q == 'FALSE':
-                pass
-            else:
-                os.system('color 4')
-                print('Nilai p atau q tidak valid!')
-                sleep(3)
-                refresh() 
-        else:
-            os.system('color 4')
-            print('Nilai p atau q tidak valid!')
-            sleep(2)
-            refresh() 
-    else:
-        os.system('color 4')
-        print('Jenis Logika tidak ada dalam daftar!')
-        sleep(3)
-        refresh()
-
-    def alls():
-        implikasi()
-        konvers()
-        inverse()
-        kontraposisi()
-        implikasi()
-
-    if j == 1:
-        implikasi()
-        input('Lanjutkan? ')
-        refresh()
-    elif j == 2:
-        konvers()
-        input('Lanjutkan? ')
-        refresh()
-    elif j == 3:
-        inverse()
-        input('Lanjutkan? ')
-        refresh()
-    elif j == 4:
-        kontraposisi()
-        input('Lanjutkan? ')
-        refresh()
-    elif j == 5:
-        alls()
-        input('Lanjutkan? ')
-        refresh()
-    elif j == 7:
-        ands()
-        input('Lanjutkan? ')
-        refresh()
-    elif j == 8:
-        ors()
-        input('Lanjutkan? ')
-        refresh()
-    elif j == 9:
-        xors()
-        input('Lanjutkan? ')
-        refresh()
-    else:
-        print('Jenis salah!')
-        sleep(3)
-        refresh()
-
+def alls():
+    implikasi()
+    konvers()
+    inverse()
+    kontraposisi()
+    implikasi()
